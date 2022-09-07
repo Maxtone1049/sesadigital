@@ -9,6 +9,10 @@
 .history
 .svn/
 migrate_working_dir/
+windows
+.vscode
+macos
+linux
 
 # IntelliJ related
 *.iml
@@ -27,6 +31,8 @@ migrate_working_dir/
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
+analysis_options.yaml
+flutter_native_splash.yaml
 .packages
 .pub-cache/
 .pub/
