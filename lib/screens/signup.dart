@@ -3,6 +3,7 @@ import 'package:sesa/components/button.dart';
 import 'package:sesa/components/custom_textfield.dart';
 import 'package:sesa/home.dart';
 import 'package:sesa/screens/signin.dart';
+import 'package:sesa/screens/verification.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -12,28 +13,30 @@ class SignUp extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            IconButton(
-              // alignment: Alignment.topLeft,
-              iconSize: 40,
-              icon: const Icon(
-                Icons.arrow_back,
+            Align(
+              alignment: Alignment.topLeft,
+              child: IconButton(
+                iconSize: 20,
+                icon: const Icon(
+                  Icons.arrow_back,
+                ),
+                onPressed: () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(
+                    builder: (context) {
+                      return HomePage();
+                    },
+                  ));
+                },
               ),
-              onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(
-                  builder: (context) {
-                    return HomePage();
-                  },
-                ));
-              },
             ),
             SizedBox(
               height: 90,
             ),
-            VentWidget()
+            VentWidget(),
           ],
         ),
       ),
@@ -51,11 +54,12 @@ class VentWidget extends StatelessWidget {
     void signIn() {
       Navigator.pushReplacement(context, MaterialPageRoute(
         builder: (context) {
-          return SignIn();
+          return Verification();
         },
       ));
     }
-return Center(
+
+    return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,

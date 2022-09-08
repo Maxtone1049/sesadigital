@@ -4,8 +4,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:sesa/home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() => runApp(App());
+bool show = true;
+void main() async {
+  final prefs = await SharedPreferences.getInstance();
+  show = prefs.getBool("ON_BOARDING") ?? true;
+  runApp(App());
+}
 
 class App extends StatelessWidget {
   static var kprimaryColor = const Color(0xFF043FA7);
@@ -19,7 +25,7 @@ class App extends StatelessWidget {
       title: 'Introduction screen',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: kprimaryColor, fontFamily: 'Satoshi'),
-      home: OnBoardingPage(),
+      home: show ? OnBoardingPage() : HomePage(),
     );
   }
 }
@@ -32,7 +38,9 @@ class OnBoardingPage extends StatefulWidget {
 class _OnBoardingPageState extends State<OnBoardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
-  void _onIntroEnd(context) {
+  void _onIntroEnd(context) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool("ON_BOARDING", false);
     Navigator.of(context).push(
       MaterialPageRoute(builder: (_) => HomePage()),
     );
@@ -51,8 +59,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   Widget _makeFullImage(String assetName) {
     return Image.asset(
       'assets/$assetName',
-      fit: BoxFit.cover,
-      height: 1100.0,
+      fit: BoxFit.fill,
+      height: 600.0,
       width: double.infinity,
       alignment: Alignment.topCenter,
     );
@@ -67,11 +75,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   @override
   Widget build(BuildContext context) {
-    const bodyStyle = TextStyle(fontSize: 15.0, fontFamily: 'Satoshi');
+    const bodyStyle = TextStyle(fontSize: 15.0, fontFamily: 'Satoshi-Regular');
 
     const pageDecoration = const PageDecoration(
       titleTextStyle: TextStyle(
-          fontSize: 28.0, fontWeight: FontWeight.normal, fontFamily: 'Satoshi'),
+          fontSize: 28.0,
+          fontWeight: FontWeight.normal,
+          fontFamily: 'Satoshi-Regular'),
       bodyTextStyle: bodyStyle,
       bodyPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
       pageColor: Colors.white,
@@ -92,25 +102,30 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       ),
       pages: [
         PageViewModel(
-          title: 'Emergency Panic Button',
+          title: "Emergency Panic Button",
           body:
               "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
-          image: _makeFullImage('image/alarm.png'),
+          image: Align(
+              alignment: Alignment.topCenter,
+              child: _makeFullImage('image/alarm.png')),
           decoration: pageDecoration.copyWith(
             contentMargin: const EdgeInsets.symmetric(horizontal: 16),
             fullScreen: true,
-            bodyFlex: 3,
-            imageFlex: 9,          ),
+            bodyFlex: 2,
+            imageFlex: 9,
+          ),
         ),
         PageViewModel(
           title: "Make Estate Payments",
           body:
               "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
-          image: _buildFullscreenImage(),
+          image: Align(
+              alignment: Alignment.topCenter,
+              child: _makeFullImage('image/pay.png')),
           decoration: pageDecoration.copyWith(
             contentMargin: const EdgeInsets.symmetric(horizontal: 16),
             fullScreen: true,
-            bodyFlex: 3,
+            bodyFlex: 2,
             imageFlex: 9,
           ),
         ),
@@ -118,11 +133,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           title: "Hire Artisans",
           body:
               "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
-          image: _makeFullImage('image/artisan.png'),
+          image: Align(
+              alignment: Alignment.topCenter,
+              child: _makeFullImage('image/artisan.png')),
           decoration: pageDecoration.copyWith(
             contentMargin: const EdgeInsets.symmetric(horizontal: 16),
             fullScreen: true,
-            bodyFlex: 3,
+            bodyFlex: 2,
             imageFlex: 9,
           ),
         ),

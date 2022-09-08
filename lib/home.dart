@@ -4,6 +4,7 @@ import 'package:sesa/screens/signup.dart';
 
 class HomePage extends StatelessWidget {
   static var primaryColor = const Color(0xFF043FA7);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,24 +18,26 @@ class HomePage extends StatelessWidget {
                 fit: BoxFit.fill,
               ),
             ),
-            child: Center(
-              child: Column(
-                children: [
-                  Image.asset('assets/image/logo-special.png'),
-                  Expanded(
-                    child: Text(
-                      'A digital plartform allowing you to automate all estate functionalities digitally.',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 17.0,
-                        fontFamily: 'Satoshi-Regular',
-                        fontWeight: FontWeight.w300,
-                        color: Colors.white,
-                      ),
+            child: Column(
+              children: [
+                Image.asset(
+                  'assets/image/logo-special.png',
+                  fit: BoxFit.cover,
+                  height: 200.0,
+                ),
+                Expanded(
+                  child: Text(
+                    'A digital plartform allowing you to automate all estate functionalities digitally.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 15.0,
+                      fontFamily: 'Satoshi-Regular',
+                      fontWeight: FontWeight.w300,
+                      color: Colors.white,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           Padding(

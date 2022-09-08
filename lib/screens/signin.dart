@@ -28,7 +28,7 @@ class SignIn extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 70.0,
+                height: 30.0,
               ),
               Text(
                 'Welcome Back',
@@ -77,15 +77,14 @@ class SignIn extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Expanded(
-                child: Text(
+                TextButton(onPressed: (){}, child: Text(
                   "Forgot Password?",
                   textAlign: TextAlign.right,
                   style: TextStyle(
                       fontFamily: 'Satoshi-Regular',
                       fontWeight: FontWeight.w600),
-                ),
-              ),
+                ),),
+                 
             ],
           ),
         ),
