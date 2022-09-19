@@ -1,11 +1,19 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:sesa/home.dart';
+import 'package:stacked_services/stacked_services.dart';
 
-void main() => runApp(App());
+import 'core/core_folder/app/app.locator.dart';
+import 'core/core_folder/app/app.router.dart';
+
+Future<void> main() async{
+
+  WidgetsFlutterBinding.ensureInitialized();
+  setupLocator();
+  runApp(App());
+}
 
 class App extends StatelessWidget {
   static var kprimaryColor = const Color(0xFF043FA7);
@@ -19,7 +27,8 @@ class App extends StatelessWidget {
       title: 'Introduction screen',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: kprimaryColor, fontFamily: 'Satoshi'),
-      home: OnBoardingPage(),
+      navigatorKey: StackedService.navigatorKey,
+      onGenerateRoute: StackedRouter().onGenerateRoute,
     );
   }
 }
@@ -69,7 +78,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   Widget build(BuildContext context) {
     const bodyStyle = TextStyle(fontSize: 15.0, fontFamily: 'Satoshi');
 
-    const pageDecoration = const PageDecoration(
+    const pageDecoration = PageDecoration(
       titleTextStyle: TextStyle(
           fontSize: 28.0, fontWeight: FontWeight.normal, fontFamily: 'Satoshi'),
       bodyTextStyle: bodyStyle,
@@ -100,7 +109,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             contentMargin: const EdgeInsets.symmetric(horizontal: 16),
             fullScreen: true,
             bodyFlex: 3,
-            imageFlex: 9,          ),
+            imageFlex: 9,
+          ),
         ),
         PageViewModel(
           title: "Make Estate Payments",

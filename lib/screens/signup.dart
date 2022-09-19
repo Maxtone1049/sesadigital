@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sesa/components/button.dart';
 import 'package:sesa/components/custom_textfield.dart';
 import 'package:sesa/home.dart';
-import 'package:sesa/screens/signin.dart';
+import 'package:sesa/screens/sign_in/signin.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -55,7 +55,8 @@ class VentWidget extends StatelessWidget {
         },
       ));
     }
-return Center(
+
+    return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,

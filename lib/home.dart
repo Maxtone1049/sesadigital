@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sesa/screens/signin.dart';
+import 'package:sesa/screens/sign_in/signin.dart';
 import 'package:sesa/screens/signup.dart';
 
 class HomePage extends StatelessWidget {
