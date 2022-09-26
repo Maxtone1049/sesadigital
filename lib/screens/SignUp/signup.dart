@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sesa/components/button.dart';
 import 'package:sesa/components/custom_textfield.dart';
 import 'package:sesa/home.dart';
-import 'package:sesa/screens/signin.dart';
-import 'package:sesa/screens/verification.dart';
+import 'package:sesa/screens/SignIn/signin.dart';
+import 'package:sesa/screens/Verification/verification.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});

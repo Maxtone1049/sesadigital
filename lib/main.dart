@@ -1,20 +1,40 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:sesa/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/foundation.dart';
 
 bool show = true;
 void main() async {
+  // below codes for not showing the onboarding screen anymore after first Launch
   final prefs = await SharedPreferences.getInstance();
   show = prefs.getBool("ON_BOARDING") ?? true;
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(App());
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   static var kprimaryColor = const Color(0xFF043FA7);
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  @override
+  void initState() {
+    super.initState;
+    initialize();
+  }
+
+  void initialize() async {
+    Future.delayed(Duration(seconds: 2));
+    FlutterNativeSplash.remove();
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -24,7 +44,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Introduction screen',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: kprimaryColor, fontFamily: 'Satoshi'),
+      theme: ThemeData(primaryColor: App.kprimaryColor, fontFamily: 'Satoshi'),
       home: show ? OnBoardingPage() : HomePage(),
     );
   }
@@ -39,6 +59,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
   void _onIntroEnd(context) async {
+    // once this information is verified, then it moves on to the signup or login screen
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool("ON_BOARDING", false);
     Navigator.of(context).push(
@@ -46,22 +67,35 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     );
   }
 
-  Widget _buildFullscreenImage() {
+  Widget _buildFullscreenImage(String assetName) {
+    Size size = MediaQuery.of(context).size;
     return Image.asset(
-      'assets/image/pay.png',
+      'assets/$assetName',
       fit: BoxFit.cover,
-      height: 1100.0,
-      width: double.infinity,
+      height: double.infinity,
+      width: size.width,
       alignment: Alignment.center,
     );
   }
 
   Widget _makeFullImage(String assetName) {
+    Size size = MediaQuery.of(context).size;
     return Image.asset(
       'assets/$assetName',
       fit: BoxFit.fill,
-      height: 600.0,
-      width: double.infinity,
+      height: 620.0,
+      width: size.width,
+      alignment: Alignment.topCenter,
+    );
+  }
+
+  Widget coverScreen(String assetName) {
+    Size size = MediaQuery.of(context).size;
+    return Image.asset(
+      'assets/$assetName',
+      fit: BoxFit.cover,
+      height: 130.0,
+      width: 130.0,
       alignment: Alignment.topCenter,
     );
   }
@@ -75,12 +109,16 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   @override
   Widget build(BuildContext context) {
-    const bodyStyle = TextStyle(fontSize: 15.0, fontFamily: 'Satoshi-Regular');
-
+    const kprimaryColor = const Color(0xFF043FA7);
+    const bodyStyle = TextStyle(
+        fontSize: 15.0,
+        fontFamily: 'Satoshi-Regular',
+        fontWeight: FontWeight.w500);
+    Size size = MediaQuery.of(context).size;
     const pageDecoration = const PageDecoration(
       titleTextStyle: TextStyle(
           fontSize: 28.0,
-          fontWeight: FontWeight.normal,
+          fontWeight: FontWeight.w600,
           fontFamily: 'Satoshi-Regular'),
       bodyTextStyle: bodyStyle,
       bodyPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
@@ -91,15 +129,14 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     return IntroductionScreen(
       key: introKey,
       globalBackgroundColor: Colors.white,
-      globalHeader: Align(
-        alignment: Alignment.topRight,
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 16, right: 16),
-            child: _buildImage('image/logo-special.png', 100),
-          ),
-        ),
-      ),
+      // globalHeader: Align(
+      //   child: SafeArea(
+      //     child: Padding(
+      //       padding: const EdgeInsets.only(top: 16, right: 16),
+      //       child: _buildImage('image/logo.png', 60),
+      //     ),
+      //   ),
+      // ),
       pages: [
         PageViewModel(
           title: "Emergency Panic Button",
