@@ -1,3 +1,4 @@
+import 'package:sesa/screens/dashboard/dashboard.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -11,6 +12,7 @@ import '../network/networt_service.dart';
 @StackedApp(
   routes: [
     MaterialRoute(page: OnBoardingPage, initial: true),
+    MaterialRoute(page: Dashboard, initial: false),
   ],
   dependencies: [
     LazySingleton(classType: NavigationService),

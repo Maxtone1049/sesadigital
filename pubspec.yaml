@@ -1,5 +1,5 @@
 name: sesa
-description: A new Flutter project.
+description: An estate digital management platform
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -35,6 +35,9 @@ dependencies:
   dio: ^4.0.6
   flutter:
     sdk: flutter
+  pinput: ^2.2.12
+  intl: ^0.17.0
+  flutter_pin_code_fields: ^1.1.0
   flutter_custom_clippers: ^2.0.0
   flutter_icons: ^1.1.0
   flutter_native_splash: ^2.2.8

@@ -18,9 +18,9 @@ class ButtonSamp extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-            fontWeight: FontWeight.w400,
+            fontWeight: FontWeight.w300,
             fontSize: 18.0,
-            fontFamily: 'Satoshi-Regular'),
+            fontFamily: 'Satoshi'),
       ),
       style: ElevatedButton.styleFrom(
         primary: colored,

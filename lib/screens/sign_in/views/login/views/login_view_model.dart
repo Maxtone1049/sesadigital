@@ -22,7 +22,7 @@ class LoginViewModel extends BaseViewModel{
   Future<void> loginUser(LoginEntity entity) async {
     try {
       await runBusyFuture(repositoryImply.login(entity), throwException: true);
-      await navigate.replaceWith(Routes.onBoardingPage);
+      await navigate.replaceWith(Routes.dashboard);
     } catch (e) {
       // logger.e(e);
       // AppUtils.snackbar(context, message: e.toString(), error: true);

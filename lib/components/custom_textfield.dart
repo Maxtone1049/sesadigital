@@ -12,6 +12,7 @@ class CustomTextfield extends StatelessWidget {
     required this.hintText,
   }) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -19,13 +20,13 @@ class CustomTextfield extends StatelessWidget {
       obscureText: obscureText,
       style: const TextStyle(
           color: Colors.black,
-          fontFamily: 'Satoshi-Regular',
+          fontFamily: 'Satoshi',
           fontSize: 16.5,
-          fontWeight: FontWeight.w400),
+          fontWeight: FontWeight.w500),
       decoration: InputDecoration(
         border: InputBorder.none,
         enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(width: 1, color: Colors.blue), //<-- SEE HERE
+          borderSide: BorderSide(width: 1, color: Color(0xFFC2C9D1)), 
         ),
         focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(width: 1, color: Colors.amberAccent),

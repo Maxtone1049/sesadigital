@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sesa/components/button.dart';
 import 'package:sesa/components/custom_textfield.dart';
 import 'package:sesa/home.dart';
-import 'package:sesa/screens/sign_in/signin.dart';
+import 'package:sesa/screens/Verification/verification.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -12,28 +12,30 @@ class SignUp extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            IconButton(
-              // alignment: Alignment.topLeft,
-              iconSize: 40,
-              icon: const Icon(
-                Icons.arrow_back,
+            Align(
+              alignment: Alignment.topLeft,
+              child: IconButton(
+                iconSize: 20,
+                icon: const Icon(
+                  Icons.arrow_back,
+                ),
+                onPressed: () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const HomePage();
+                    },
+                  ));
+                },
               ),
-              onPressed: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(
-                  builder: (context) {
-                    return HomePage();
-                  },
-                ));
-              },
             ),
-            SizedBox(
+            const SizedBox(
               height: 90,
             ),
-            VentWidget()
+            const VentWidget(),
           ],
         ),
       ),
@@ -51,7 +53,7 @@ class VentWidget extends StatelessWidget {
     void signIn() {
       Navigator.pushReplacement(context, MaterialPageRoute(
         builder: (context) {
-          return SignIn();
+          return Verification();
         },
       ));
     }
@@ -61,30 +63,30 @@ class VentWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 3.0,
           ),
-          Text(
+          const Text(
             'Let’s get you all set up',
             style: TextStyle(
                 fontSize: 28.0,
                 fontFamily: 'Satoshi-Regular',
                 fontWeight: FontWeight.w500),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          Text(
+          const Text(
             'Enter your email address registered by the estate admin',
             style: TextStyle(
                 fontSize: 15.0,
                 fontFamily: 'Satoshi-Regular',
                 fontWeight: FontWeight.w300),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
-          Text(
+          const Text(
             'Email Address',
             style: TextStyle(
                 fontSize: 14.0,
