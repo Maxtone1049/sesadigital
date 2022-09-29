@@ -13,16 +13,16 @@ class CustomBottomSheet extends StatelessWidget {
     return Container(
       width: size.width,
       height: 350,
-      padding: EdgeInsets.symmetric(vertical: 14),
+      padding: const EdgeInsets.symmetric(vertical: 14,),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(30), topRight: Radius.circular(30)),
         boxShadow: [
           BoxShadow(
-            offset: Offset(3, -50),
+            offset: const Offset(3, -50),
             blurRadius: 90,
-            color: Color(0xFFDADADA).withOpacity(0.10),
+            color: const Color(0xFFDADADA).withOpacity(0.10),
           ),
         ],
       ),
@@ -37,7 +37,7 @@ class CustomBottomSheet extends StatelessWidget {
                 onTap: () {
                   Navigator.pushReplacement(context, MaterialPageRoute(
                     builder: (context) {
-                      return AddVisitor();
+                      return const AddVisitor();
                     },
                   ));
                 },
@@ -47,11 +47,11 @@ class CustomBottomSheet extends StatelessWidget {
                       'assets/icons/add.svg',
                       width: 60,
                     ),
-                    SizedBox(width: 25),
+                    const SizedBox(width: 25),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                        children: const [
                           Text(
                             'Schedule a visitor',
                             style: TextStyle(
@@ -80,11 +80,11 @@ class CustomBottomSheet extends StatelessWidget {
                       'assets/icons/cal.svg',
                       width: 60,
                     ),
-                    SizedBox(width: 25),
+                    const SizedBox(width: 25),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                        children: const [
                           Text(
                             'Schedule an event',
                             style: TextStyle(
@@ -113,11 +113,11 @@ class CustomBottomSheet extends StatelessWidget {
                       'assets/icons/cal.svg',
                       width: 60,
                     ),
-                    SizedBox(width: 25),
+                    const SizedBox(width: 25),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                        children: const [
                           Text(
                             'Create a group access code',
                             style: TextStyle(

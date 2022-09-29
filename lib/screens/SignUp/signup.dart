@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sesa/components/button.dart';
 import 'package:sesa/components/custom_textfield.dart';
 import 'package:sesa/home.dart';
-import 'package:sesa/screens/SignIn/signin.dart';
 import 'package:sesa/screens/Verification/verification.dart';
 
 class SignUp extends StatelessWidget {
@@ -27,16 +26,16 @@ class SignUp extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushReplacement(context, MaterialPageRoute(
                     builder: (context) {
-                      return HomePage();
+                      return const HomePage();
                     },
                   ));
                 },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 90,
             ),
-            VentWidget(),
+            const VentWidget(),
           ],
         ),
       ),
@@ -64,30 +63,30 @@ class VentWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 3.0,
           ),
-          Text(
+          const Text(
             'Let’s get you all set up',
             style: TextStyle(
                 fontSize: 28.0,
                 fontFamily: 'Satoshi-Regular',
                 fontWeight: FontWeight.w500),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          Text(
+          const Text(
             'Enter your email address registered by the estate admin',
             style: TextStyle(
                 fontSize: 15.0,
                 fontFamily: 'Satoshi-Regular',
                 fontWeight: FontWeight.w300),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
-          Text(
+          const Text(
             'Email Address',
             style: TextStyle(
                 fontSize: 14.0,

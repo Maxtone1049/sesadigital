@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:sesa/screens/SignIn/signin.dart';
 import 'package:sesa/screens/SignUp/signup.dart';
+import 'package:sesa/screens/sign_in/views/login/views/signin.dart';
 
 class HomePage extends StatelessWidget {
   static var primaryColor = const Color(0xFF043FA7);
+
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class HomePage extends StatelessWidget {
           Container(
             height: 600.0,
             width: size.width,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/image/Union.png"),
                 fit: BoxFit.fill,
@@ -27,7 +29,7 @@ class HomePage extends StatelessWidget {
                   fit: BoxFit.cover,
                   height: 200.0,
                 ),
-                Expanded(
+                const Expanded(
                   child: Text(
                     'A digital plartform allowing you to automate \nall estate functionalities digitally.',
                     textAlign: TextAlign.center,
@@ -44,14 +46,14 @@ class HomePage extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.fromLTRB(50, 60, 50, 0),
+              padding: const EdgeInsets.fromLTRB(50, 60, 50, 0),
               child: Row(
                 children: <Widget>[
-                  Spacer(),
+                  const Spacer(),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: Colors.white,
-                      side: BorderSide(
+                      side: const BorderSide(
                         width: 1.0,
                         color: Colors.blue,
                       ),
@@ -63,8 +65,8 @@ class HomePage extends StatelessWidget {
                         },
                       ));
                     },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
                       child: Text(
                         'Sign In',
                         style: TextStyle(
@@ -75,17 +77,17 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.pushReplacement(context, MaterialPageRoute(
                         builder: (context) {
-                          return SignUp();
+                          return const SignUp();
                         },
                       ));
                     },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
                       child: Text(
                         'Sign Up',
                         style: TextStyle(
@@ -95,7 +97,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                 ],
               ),
             ),

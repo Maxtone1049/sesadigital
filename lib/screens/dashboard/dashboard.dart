@@ -11,28 +11,24 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Body(),
-      // routes:routes,
-      bottomNavigationBar: const CustomBottomNav(selectedMenu: MenuState.home),
+      body: SafeArea(child: Body()),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
-            shape: const RoundedRectangleBorder(
-                          // <-- SEE HERE
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(25.0),
-                          ),
-                        ),
+              shape: const RoundedRectangleBorder(
+                // <-- SEE HERE
+                borderRadius: BorderRadius.vertical(
+                  top: Radius.circular(25.0),
+                ),
+              ),
               context: context,
               builder: (context) {
-                return CustomBottomSheet();
+                return const CustomBottomSheet();
               });
         },
         child: const Icon(Icons.add),
       ),
+      bottomNavigationBar: CustomBottomNav(selectedMenu: MenuState.home)
     );
   }
 }
-
-
-

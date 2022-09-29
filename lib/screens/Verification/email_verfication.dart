@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
-import 'package:sesa/components/custom_textfield.dart';
-import 'package:sesa/screens/SignIn/signin.dart';
 import 'package:sesa/screens/dashboard/dashboard.dart';
+
+import '../sign_in/views/login/views/signin.dart';
 
 class EmailVeri extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final String otpText = '12345';
+    const String otpText = '12345';
     final otpController = TextEditingController();
     return SafeArea(
       child: Scaffold(
@@ -18,7 +18,7 @@ class EmailVeri extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Align(
@@ -37,10 +37,10 @@ class EmailVeri extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 90,
               ),
-              Text(
+              const Text(
                 'Verification',
                 style: TextStyle(
                     fontSize: 28.0,
@@ -50,7 +50,7 @@ class EmailVeri extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 'Enter the verification code sent to your email',
                 style: TextStyle(
                     fontSize: 16.0,
@@ -116,7 +116,7 @@ class EmailVeri extends StatelessWidget {
                     ));
                     Navigator.pushReplacement(context, MaterialPageRoute(
                       builder: (context) {
-                        return Dashboard();
+                        return const Dashboard();
                       },
                     ));
                   } else {
@@ -127,7 +127,7 @@ class EmailVeri extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              Spacer()
+              const Spacer()
             ],
           ),
         ),

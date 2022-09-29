@@ -5,13 +5,19 @@ import 'package:introduction_screen/introduction_screen.dart';
 import 'package:sesa/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/foundation.dart';
+import 'package:stacked_services/stacked_services.dart';
+
+import 'core/core_folder/app/app.locator.dart';
+import 'core/core_folder/app/app.router.dart';
 
 bool show = true;
-void main() async {
+Future<void> main() async {
   // below codes for not showing the onboarding screen anymore after first Launch
+
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  setupLocator();
   final prefs = await SharedPreferences.getInstance();
   show = prefs.getBool("ON_BOARDING") ?? true;
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(App());
 }
@@ -31,7 +37,7 @@ class _AppState extends State<App> {
   }
 
   void initialize() async {
-    Future.delayed(Duration(seconds: 2));
+    Future.delayed(const Duration(seconds: 2));
     FlutterNativeSplash.remove();
   }
 
@@ -45,7 +51,8 @@ class _AppState extends State<App> {
       title: 'Introduction screen',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: App.kprimaryColor, fontFamily: 'Satoshi'),
-      home: show ? OnBoardingPage() : HomePage(),
+      navigatorKey: StackedService.navigatorKey,
+      onGenerateRoute: StackedRouter().onGenerateRoute,
     );
   }
 }
@@ -109,13 +116,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   @override
   Widget build(BuildContext context) {
-    const kprimaryColor = const Color(0xFF043FA7);
+    const kprimaryColor = Color(0xFF043FA7);
     const bodyStyle = TextStyle(
         fontSize: 15.0,
         fontFamily: 'Satoshi-Regular',
         fontWeight: FontWeight.w500);
     Size size = MediaQuery.of(context).size;
-    const pageDecoration = const PageDecoration(
+    const pageDecoration = PageDecoration(
       titleTextStyle: TextStyle(
           fontSize: 28.0,
           fontWeight: FontWeight.w600,
@@ -129,14 +136,6 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     return IntroductionScreen(
       key: introKey,
       globalBackgroundColor: Colors.white,
-      // globalHeader: Align(
-      //   child: SafeArea(
-      //     child: Padding(
-      //       padding: const EdgeInsets.only(top: 16, right: 16),
-      //       child: _buildImage('image/logo.png', 60),
-      //     ),
-      //   ),
-      // ),
       pages: [
         PageViewModel(
           title: "Emergency Panic Button",

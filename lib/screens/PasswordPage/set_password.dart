@@ -5,6 +5,8 @@ import 'package:sesa/screens/Verification/verification.dart';
 import 'package:sesa/screens/dashboard/dashboard.dart';
 
 class PasswordPage extends StatelessWidget {
+  const PasswordPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -39,7 +41,7 @@ class PasswordPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Set Password',
                       style: TextStyle(
                           fontSize: 28.0,
@@ -49,7 +51,7 @@ class PasswordPage extends StatelessWidget {
                     const SizedBox(
                       height: 40,
                     ),
-                    Text(
+                    const Text(
                       'Password',
                       style: TextStyle(
                           fontSize: 14.0,
@@ -59,12 +61,12 @@ class PasswordPage extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    const CustomTextfield(
+                   CustomTextfield(
                         obscureText: true, hintText: 'Password'),
                     const SizedBox(
                       height: 30,
                     ),
-                    Text(
+                    const Text(
                       'Re-type Password',
                       style: TextStyle(
                           fontSize: 14.0,
@@ -74,13 +76,13 @@ class PasswordPage extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    const CustomTextfield(
+                     CustomTextfield(
                         obscureText: true, hintText: 'Confirm Password'),
                     const SizedBox(
                       height: 40,
                     ),
-                    RadioListTile(
-                      title: Text(
+                    RadioListTile<String>(
+                      title: const Text(
                         "Minimum of 8 characters",
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
@@ -91,8 +93,8 @@ class PasswordPage extends StatelessWidget {
                       groupValue: null,
                       onChanged: (value) {},
                     ),
-                    RadioListTile(
-                      title: Text(
+                    RadioListTile<String>(
+                      title: const Text(
                         "One UPPERCASE character",
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
@@ -103,8 +105,8 @@ class PasswordPage extends StatelessWidget {
                       groupValue: null,
                       onChanged: (value) {},
                     ),
-                    RadioListTile(
-                      title: Text(
+                    RadioListTile<String>(
+                      title: const Text(
                         "One unique character (e.g: '!@#%^&')",
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
@@ -123,7 +125,7 @@ class PasswordPage extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushReplacement(context, MaterialPageRoute(
                           builder: (context) {
-                            return Dashboard();
+                            return const Dashboard();
                           },
                         ));
                       },
@@ -131,7 +133,7 @@ class PasswordPage extends StatelessWidget {
                     const SizedBox(
                       height: 50,
                     ),
-                    Align(
+                    const Align(
                         alignment: Alignment.center,
                         child: Text(
                           'By clicking Sign Up you agree to our Terms and Conditions',
