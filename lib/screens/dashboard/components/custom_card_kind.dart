@@ -17,20 +17,20 @@ class CustomCardKind extends StatelessWidget {
   final String initdate;
   final String? startTime, stopTime;
 
-  static var kConColorVisitor = Color(0xFFAF52DE);
-  static var kConColorEvent = Color(0xFFFFE6C2);
-  static var kConColorArtisan = Color(0xFFD7F2FE);
+  static var kConColorVisitor = const Color(0xFFAF52DE);
+  static var kConColorEvent = const Color(0xFFFFE6C2);
+  static var kConColorArtisan = const Color(0xFFD7F2FE);
 
   @override
   Widget build(BuildContext context) {
-    final Color kTextColor = Color(0xFFF0DBFA);
-    final Color kTextorange = Color(0xFFFF9500);
-    final Color kArtisanColor = Color(0xFF5AC8FA);
+    final Color kTextColor = const Color(0xFFF0DBFA);
+    final Color kTextorange = const Color(0xFFFF9500);
+    final Color kArtisanColor = const Color(0xFF5AC8FA);
     final Color isActive = Colors.brown;
     final Color isNormal = Colors.white;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 9),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
@@ -39,8 +39,8 @@ class CustomCardKind extends StatelessWidget {
         child: Row(
           children: [
             Card(
-              color: Color(0xFF2066AF),
-              shape: CircleBorder(
+              color: const Color(0xFF2066AF),
+              shape: const CircleBorder(
                 side: BorderSide(
                   color: Color(0xFF2066AF),
                   width: 2.0,
@@ -49,7 +49,7 @@ class CustomCardKind extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(15),
                 child: visitType == 'Event'
-                    ? Icon(
+                    ? const Icon(
                         Icons.calendar_month,
                         size: 25,
                         color: Colors.white,
@@ -58,7 +58,7 @@ class CustomCardKind extends StatelessWidget {
                         visitorName.length > 2
                             ? visitorName.substring(0, 1) + ''
                             : visitorName,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 22,
                             fontFamily: 'Satoshi',
@@ -66,7 +66,7 @@ class CustomCardKind extends StatelessWidget {
                       ),
               ),
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Expanded(
               child: Container(
                 width: 300,
@@ -76,17 +76,17 @@ class CustomCardKind extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       visitorName,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontFamily: 'Satoshi',
                           fontSize: 16,
                           fontWeight: FontWeight.w600),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     Text(
                       serialNumber ?? initdate,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontFamily: 'Satoshi',
                           fontSize: 14,
                           fontWeight: FontWeight.w300),
@@ -94,25 +94,25 @@ class CustomCardKind extends StatelessWidget {
                     Row(
                       children: [
                         Row(children: [
-                          SizedBox(width: 1),
+                          const SizedBox(width: 1),
                           Text(
                             startTime ?? '',
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontFamily: 'Satoshi',
                               fontWeight: FontWeight.normal,
                               fontSize: 14,
                             ),
                           ),
                         ]),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         Row(
                           children: [
-                            SizedBox(width: 1),
+                            const SizedBox(width: 1),
                             Text(
                               stopTime ?? '',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontFamily: 'Satoshi',
                                 fontWeight: FontWeight.normal,
                                 fontSize: 14,
@@ -136,7 +136,7 @@ class CustomCardKind extends StatelessWidget {
                         : visitType == 'Artisan'
                             ? kConColorArtisan
                             : isActive,
-                borderRadius: BorderRadius.all(Radius.circular(5)),
+                borderRadius: const BorderRadius.all(Radius.circular(5)),
               ),
               padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 7),
               child: Text(

@@ -12,7 +12,8 @@ class CustomCardVisitor extends StatelessWidget {
     this.startTime,
     this.stopTime,
     this.image1,
-    this.image2, required this.press,
+    this.image2,
+    required this.press,
   });
 
   final String visitorName;
