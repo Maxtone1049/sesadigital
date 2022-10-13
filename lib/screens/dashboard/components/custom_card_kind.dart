@@ -51,7 +51,7 @@ class CustomCardKind extends StatelessWidget {
                 child: visitType == 'Event'
                     ? Icon(
                         Icons.calendar_month,
-                        size: 25,
+                        size: 22,
                         color: Colors.white,
                       )
                     : Text(
@@ -60,7 +60,7 @@ class CustomCardKind extends StatelessWidget {
                             : visitorName,
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 22,
+                            fontSize: 23,
                             fontFamily: 'Satoshi',
                             fontWeight: FontWeight.w700),
                       ),

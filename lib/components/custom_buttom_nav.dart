@@ -4,6 +4,7 @@ import 'package:sesa/enum.dart';
 import 'package:sesa/screens/Booking/booking.dart';
 import 'package:sesa/screens/Profile/profile_screen.dart';
 import 'package:sesa/screens/dashboard/dashboard.dart';
+import 'package:get/route_manager.dart';
 
 class CustomBottomNav extends StatelessWidget {
   const CustomBottomNav({
@@ -33,217 +34,189 @@ class CustomBottomNav extends StatelessWidget {
         //   ),
         // ]
       ),
-      child: Expanded(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            InkWell(
-              onTap: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(
-                  builder: (context) {
-                    return Dashboard();
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          InkWell(
+            onTap: () {
+              Get.toNamed('/dashboard');
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Get.toNamed('/dashboard');
                   },
-                ));
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(
-                        builder: (context) {
-                          return Dashboard();
-                        },
-                      ));
-                    },
-                    tooltip: 'Home',
-                    icon: SvgPicture.asset(
-                      "assets/icons/home.svg",
-                      height: 19,
-                      width: 22,
+                  tooltip: 'Home',
+                  icon: SvgPicture.asset(
+                    "assets/icons/home.svg",
+                    height: 19,
+                    width: 22,
+                    color: MenuState.home == selectedMenu
+                        ? isActive
+                        : kPrimaryColor,
+                  ),
+                ),
+                Text(
+                  'Home',
+                  style: TextStyle(
+                      fontWeight: MenuState.home == selectedMenu
+                          ? FontWeight.w600
+                          : FontWeight.w500,
+                      fontFamily: 'Satoshi',
+                      fontSize: 14.0,
                       color: MenuState.home == selectedMenu
                           ? isActive
-                          : kPrimaryColor,
-                    ),
-                  ),
-                  Expanded(
-                    child: Text(
-                      'Home',
-                      style: TextStyle(
-                          fontWeight: MenuState.home == selectedMenu
-                              ? FontWeight.w600
-                              : FontWeight.w500,
-                          fontFamily: 'Satoshi',
-                          fontSize: 14.0,
-                          color: MenuState.home == selectedMenu
-                              ? isActive
-                              : kPrimaryColor),
-                    ),
-                  ),
-                ],
-              ),
+                          : kPrimaryColor),
+                ),
+              ],
             ),
-            InkWell(
-              onTap: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(
-                  builder: (context) {
-                    return BookingScreen();
-                  },
-                ));
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(
-                          builder: (context) {
-                            return BookingScreen();
-                          },
-                        ));
-                      },
-                      tooltip: 'Bookings',
-                      icon: SvgPicture.asset(
-                        "assets/icons/book.svg",
-                        height: 19,
-                        width: 22,
-                        color: MenuState.book == selectedMenu
-                            ? isActive
-                            : kPrimaryColor,
-                      )),
-                  Expanded(
-                    child: Text(
-                      'Bookings',
-                      style: TextStyle(
-                          fontWeight: MenuState.book == selectedMenu
-                              ? FontWeight.w600
-                              : FontWeight.w500,
-                          fontFamily: 'Satoshi',
-                          fontSize: 14.0,
-                          color: MenuState.book == selectedMenu
-                              ? isActive
-                              : kPrimaryColor),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    tooltip: 'Services',
+          ),
+          InkWell(
+            onTap: () {
+              Get.toNamed('/booking');
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                    onPressed: () {
+                      Get.toNamed('/booking');
+                    },
+                    tooltip: 'Bookings',
                     icon: SvgPicture.asset(
-                      "assets/icons/services.svg",
+                      "assets/icons/book.svg",
                       height: 19,
                       width: 22,
+                      color: MenuState.book == selectedMenu
+                          ? isActive
+                          : kPrimaryColor,
+                    )),
+                Text(
+                  'Bookings',
+                  style: TextStyle(
+                      fontWeight: MenuState.book == selectedMenu
+                          ? FontWeight.w600
+                          : FontWeight.w500,
+                      fontFamily: 'Satoshi',
+                      fontSize: 14.0,
+                      color: MenuState.book == selectedMenu
+                          ? isActive
+                          : kPrimaryColor),
+                ),
+              ],
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              Get.toNamed('/services');
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Get.toNamed('/services');
+                  },
+                  tooltip: 'Services',
+                  icon: SvgPicture.asset(
+                    "assets/icons/services.svg",
+                    height: 19,
+                    width: 22,
+                    color: MenuState.services == selectedMenu
+                        ? isActive
+                        : kPrimaryColor,
+                  ),
+                ),
+                Text(
+                  'Services',
+                  style: TextStyle(
+                      fontWeight: MenuState.services == selectedMenu
+                          ? FontWeight.w600
+                          : FontWeight.w500,
+                      fontFamily: 'Satoshi',
+                      fontSize: 14.0,
                       color: MenuState.services == selectedMenu
                           ? isActive
-                          : kPrimaryColor,
-                    ),
-                  ),
-                  Expanded(
-                    child: Text(
-                      'Services',
-                      style: TextStyle(
-                          fontWeight: MenuState.services == selectedMenu
-                              ? FontWeight.w600
-                              : FontWeight.w500,
-                          fontFamily: 'Satoshi',
-                          fontSize: 14.0,
-                          color: MenuState.services == selectedMenu
-                              ? isActive
-                              : kPrimaryColor),
-                    ),
-                  ),
-                ],
-              ),
+                          : kPrimaryColor),
+                ),
+              ],
             ),
-            InkWell(
-              onTap: () {},
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                      onPressed: () {},
-                      tooltip: 'Wallet',
-                      icon: SvgPicture.asset(
-                        "assets/icons/wallet.svg",
-                        height: 19,
-                        width: 22,
-                        color: MenuState.wallet == selectedMenu
-                            ? isActive
-                            : kPrimaryColor,
-                      )),
-                  Expanded(
-                    child: Text(
-                      'Wallet',
-                      style: TextStyle(
-                          fontWeight: MenuState.wallet == selectedMenu
-                              ? FontWeight.w600
-                              : FontWeight.w500,
-                          fontFamily: 'Satoshi',
-                          fontSize: 14.0,
-                          color: MenuState.wallet == selectedMenu
-                              ? isActive
-                              : kPrimaryColor),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(
-                  builder: (context) {
-                    return ProfileScreen();
-                  },
-                ));
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
+          ),
+          InkWell(
+            onTap: () {
+              Get.toNamed('/wallet');
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
                     onPressed: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(
-                        builder: (context) {
-                          return ProfileScreen();
-                        },
-                      ));
+                      Get.toNamed('/wallet');
                     },
-                    tooltip: 'Account',
+                    tooltip: 'Wallet',
                     icon: SvgPicture.asset(
-                      "assets/icons/user.svg",
+                      "assets/icons/wallet.svg",
                       height: 19,
                       width: 22,
-                      color: MenuState.user == selectedMenu
+                      color: MenuState.wallet == selectedMenu
                           ? isActive
                           : kPrimaryColor,
-                    ),
-                  ),
-                  Expanded(
-                    child: Text(
-                      'Account',
-                      style: TextStyle(
-                          fontWeight: MenuState.user == selectedMenu
-                              ? FontWeight.w600
-                              : FontWeight.w500,
-                          fontFamily: 'Satoshi',
-                          fontSize: 14.0,
-                          color: MenuState.user == selectedMenu
-                              ? isActive
-                              : kPrimaryColor),
-                    ),
-                  ),
-                ],
-              ),
+                    )),
+                Text(
+                  'Wallet',
+                  style: TextStyle(
+                      fontWeight: MenuState.wallet == selectedMenu
+                          ? FontWeight.w600
+                          : FontWeight.w500,
+                      fontFamily: 'Satoshi',
+                      fontSize: 14.0,
+                      color: MenuState.wallet == selectedMenu
+                          ? isActive
+                          : kPrimaryColor),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+          InkWell(
+            onTap: () {
+              Get.toNamed('/user');
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Get.toNamed('/user');
+                  },
+                  tooltip: 'Account',
+                  icon: SvgPicture.asset(
+                    "assets/icons/user.svg",
+                    height: 19,
+                    width: 22,
+                    color: MenuState.user == selectedMenu
+                        ? isActive
+                        : kPrimaryColor,
+                  ),
+                ),
+                Text(
+                  'Account',
+                  style: TextStyle(
+                      fontWeight: MenuState.user == selectedMenu
+                          ? FontWeight.w600
+                          : FontWeight.w500,
+                      fontFamily: 'Satoshi',
+                      fontSize: 14.0,
+                      color: MenuState.user == selectedMenu
+                          ? isActive
+                          : kPrimaryColor),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

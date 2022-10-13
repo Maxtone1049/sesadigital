@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:intl/intl.dart';
 import 'package:sesa/components/button.dart';
 import 'package:sesa/components/custom_buttom_sheet.dart';
@@ -68,29 +69,32 @@ class AddVisitor extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: Color(0xFFC2C9D1)),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      child: DropdownButton(
-                        items: items.map((String items) {
-                          return DropdownMenuItem(
-                            value: items,
-                            child: Text(
-                              items,
-                              style: TextStyle(
-                                  fontFamily: 'Satoshi',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          );
-                        }).toList(),
-                        onChanged: (value) {},
-                        value: dropdownvalue,
-                        icon: const Icon(Icons.keyboard_arrow_down),
+                  Expanded(
+                    flex: 0,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 1, color: Color(0xFFC2C9D1)),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: DropdownButton(
+                          items: items.map((String items) {
+                            return DropdownMenuItem(
+                              value: items,
+                              child: Text(
+                                items,
+                                style: TextStyle(
+                                    fontFamily: 'Satoshi',
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (value) {},
+                          value: dropdownvalue,
+                          icon: const Icon(Icons.keyboard_arrow_down),
+                        ),
                       ),
                     ),
                   ),
@@ -98,6 +102,7 @@ class AddVisitor extends StatelessWidget {
                     width: 9,
                   ),
                   Expanded(
+                    flex: 1,
                     child: TextField(
                       style: TextStyle(
                           color: Colors.black,
@@ -121,18 +126,21 @@ class AddVisitor extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    width: 19,
+                    width: 10,
                   ),
-                  InkWell(
-                    onTap: () {},
-                    child: Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xFF0B5FFF),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        width: 50,
-                        height: 50,
-                        child: Icon(Icons.person, color: Colors.white)),
+                  Expanded(
+                    flex: 0,
+                    child: InkWell(
+                      onTap: () {},
+                      child: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xFF0B5FFF),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          width: 50,
+                          height: 50,
+                          child: Icon(Icons.person, color: Colors.white)),
+                    ),
                   ),
                 ],
               ),
@@ -269,31 +277,29 @@ class AddVisitor extends StatelessWidget {
               SizedBox(height: 5),
               SizedBox(
                 height: 103,
-                child: Expanded(
-                  child: TextField(
-                    maxLines: 8,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'Satoshi',
-                        fontSize: 16.5,
-                        fontWeight: FontWeight.w500),
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(width: 1, color: Color(0xFFC2C9D1)),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(width: 1, color: Color(0xFFC2C9D1)),
-                      ),
-                      // prefixIcon: Icon(icon, color: Colors.black.withOpacity(.3),),
-                      hintText:
-                          'Message will be displayed to the security guard at check-in',
+                child: TextField(
+                  maxLines: 8,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Satoshi',
+                      fontSize: 16.5,
+                      fontWeight: FontWeight.w500),
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(width: 1, color: Color(0xFFC2C9D1)),
                     ),
-                    cursorColor: Colors.black.withOpacity(.5),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(width: 1, color: Color(0xFFC2C9D1)),
+                    ),
+                    // prefixIcon: Icon(icon, color: Colors.black.withOpacity(.3),),
+                    hintText:
+                        'Message will be displayed to the security guard at check-in',
                   ),
+                  cursorColor: Colors.black.withOpacity(.5),
                 ),
               ),
               SizedBox(
@@ -312,6 +318,7 @@ class AddVisitor extends StatelessWidget {
               ButtonSamp(
                   onPressed: () {
                     showModalBottomSheet(
+                        backgroundColor: Colors.white,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.vertical(
                             top: Radius.circular(25.0),
@@ -322,32 +329,32 @@ class AddVisitor extends StatelessWidget {
                           return Container(
                             height: 300,
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal:30),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 30),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment:CrossAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Center(
-                                    child: Expanded(
-                                        child: Text(
-                                            'You have successfully scheduled a visitor into your home',
-                                            style:TextStyle(
-                                              fontWeight:FontWeight.w400,
-                                              fontSize:18,
-                                              fontFamily:'Satoshi',
-                                              ),
-                                          textAlign:TextAlign.center,
-                                            )),
+                                    child: Text(
+                                      'You have successfully scheduled a visitor into your home',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 18,
+                                        fontFamily: 'Satoshi',
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
                                   ),
-                                  SizedBox(height: 25,),
-                                  ButtonSamp(onPressed: (){
-                                    Navigator.pushReplacement(context,
-                                          MaterialPageRoute(
-                                        builder: (context) {
-                                          return VisitorDetails();
-                                        },
-                                      ));
-                                  },text:'View Details'),
+                                  SizedBox(
+                                    height: 25,
+                                  ),
+                                  ButtonSamp(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                        Get.toNamed('/visit_today');
+                                      },
+                                      text: 'View Details'),
                                 ],
                               ),
                             ),

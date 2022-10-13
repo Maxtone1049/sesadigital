@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:sesa/screens/SignIn/signin.dart';
 import 'package:sesa/screens/SignUp/signup.dart';
 
@@ -33,7 +34,7 @@ class HomePage extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 15.0,
-                      fontFamily: 'Satoshi-Regular',
+                      fontFamily: 'Satoshi',
                       fontWeight: FontWeight.w300,
                       color: Colors.white,
                     ),
@@ -57,11 +58,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(
-                        builder: (context) {
-                          return SignIn();
-                        },
-                      ));
+                      Get.toNamed('/signin');
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -69,20 +66,16 @@ class HomePage extends StatelessWidget {
                         'Sign In',
                         style: TextStyle(
                             fontSize: 15.5,
-                            fontWeight: FontWeight.normal,
                             color: Colors.black,
-                            fontFamily: 'Satoshi-Regular'),
+                            fontWeight:FontWeight.w500,
+                            fontFamily: 'Satoshi'),
                       ),
                     ),
                   ),
                   Spacer(),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(
-                        builder: (context) {
-                          return SignUp();
-                        },
-                      ));
+                      Get.toNamed('/signup');
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -90,8 +83,8 @@ class HomePage extends StatelessWidget {
                         'Sign Up',
                         style: TextStyle(
                             fontSize: 15.5,
-                            fontWeight: FontWeight.normal,
-                            fontFamily: 'Satoshi-Regular'),
+                            fontWeight:FontWeight.w500,
+                            fontFamily: 'Satoshi'),
                       ),
                     ),
                   ),

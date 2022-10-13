@@ -6,7 +6,9 @@ import 'package:sesa/screens/Booking/components/body.dart';
 import '../../components/custom_buttom_sheet.dart';
 
 class BookingScreen extends StatelessWidget {
-  const BookingScreen({super.key, });
+  const BookingScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,18 +16,19 @@ class BookingScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-            backgroundColor: Colors.white,
-            elevation: 0,
-            title: Text(
-              'Bookings',
-              style: TextStyle(
-                  fontFamily: 'Satoshi',
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20),
-            ),
-            centerTitle: true,
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.white,
+          elevation: 0,
+          title: Text(
+            'Bookings',
+            style: TextStyle(
+                fontFamily: 'Satoshi',
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
+                fontSize: 20),
           ),
+          centerTitle: true,
+        ),
         body: const Body(),
         bottomNavigationBar:
             const CustomBottomNav(selectedMenu: MenuState.book),

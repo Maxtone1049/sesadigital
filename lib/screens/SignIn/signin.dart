@@ -1,14 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:http/http.dart';
-import 'package:pinput/pinput.dart';
 import 'package:sesa/components/button.dart';
 import 'package:sesa/components/custom_textfield.dart';
 import 'package:sesa/screens/Verification/email_verfication.dart';
-import 'package:sesa/screens/dashboard/dashboard.dart';
-import 'package:sesa/screens/SignUp/signup.dart';
-import 'package:sesa/screens/Verification/verification.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -20,35 +17,33 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  void login(String email, password) async {
-    try {
-      Response response = await post(
-          Uri.parse('https://real.sesadigital.com/api/loginResident'),
-          body: {'email': email, 'password': password});
-      if (response.statusCode == 200) {
-        var data = jsonDecode(response.body.toString());
-        print(data['message']);
-        print('Account Logged In');
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) {
-          return Dashboard();
-        }));
-      } else {
-        print('Invalid Credentials');
-      }
-    } catch (e) {
-      print(e.toString());
-    }
-  }
+  // void login(String email, password) async {
+  //   try {
+  //     Response response = await post(
+  //         Uri.parse('https://real.sesadigital.com/api/loginResident'),
+  //         body: {'email': email, 'password': password});
+  //     if (response.statusCode == 200) {
+  //       var data = jsonDecode(response.body.toString());
+  //       print(data['message']);
+  //       print('Account Logged In');
+  //       Navigator.pushReplacement(context,
+  //           MaterialPageRoute(builder: (context) {
+  //         return Dashboard();
+  //       }));
+  //     } else {
+  //       print('Invalid Credentials');
+  //     }
+  //   } catch (e) {
+  //     print(e.toString());
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
     void pushIn() {
       // login(
       //     emailController.text.toString(), passwordController.text.toString());
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return Dashboard();
-      }));
+     Get.toNamed('/dashboard');
     }
 
     void forgotPass() {
@@ -74,8 +69,8 @@ class _SignInState extends State<SignIn> {
                 'Welcome Back',
                 style: TextStyle(
                     fontSize: 28.0,
-                    fontFamily: 'Satoshi-Regular',
-                    fontWeight: FontWeight.w500),
+                    fontFamily: 'Satoshi',
+                    fontWeight: FontWeight.w600),
               ),
               const SizedBox(
                 height: 50,
@@ -84,8 +79,8 @@ class _SignInState extends State<SignIn> {
                 'Email Address',
                 style: TextStyle(
                     fontSize: 14.0,
-                    fontFamily: 'Satoshi-Regular',
-                    fontWeight: FontWeight.w500),
+                    fontFamily: 'Satoshi',
+                    fontWeight: FontWeight.w600),
               ),
               const SizedBox(
                 height: 5,
@@ -101,8 +96,8 @@ class _SignInState extends State<SignIn> {
                 'Password',
                 style: TextStyle(
                     fontSize: 14.0,
-                    fontFamily: 'Satoshi-Regular',
-                    fontWeight: FontWeight.w500),
+                    fontFamily: 'Satoshi',
+                    fontWeight: FontWeight.w600),
               ),
               const SizedBox(
                 height: 5,
@@ -127,7 +122,7 @@ class _SignInState extends State<SignIn> {
                   "Forgot Password?",
                   textAlign: TextAlign.right,
                   style: TextStyle(
-                      fontFamily: 'Satoshi-Regular',
+                      fontFamily: 'Satoshi',
                       fontWeight: FontWeight.w600),
                 ),
               ),
@@ -191,7 +186,7 @@ class _ForgotPassState extends State<ForgotPass> {
                 'Reset Password',
                 style: TextStyle(
                     fontSize: 28.0,
-                    fontFamily: 'Satoshi-Regular',
+                    fontFamily: 'Satoshi',
                     fontWeight: FontWeight.w500),
               ),
               const SizedBox(
@@ -201,7 +196,7 @@ class _ForgotPassState extends State<ForgotPass> {
                 'Please enter your email address registered with SESA Digitals',
                 style: TextStyle(
                     fontSize: 16.0,
-                    fontFamily: 'Satoshi-Regular',
+                    fontFamily: 'Satoshi',
                     fontWeight: FontWeight.w300),
               ),
               const SizedBox(
@@ -211,7 +206,7 @@ class _ForgotPassState extends State<ForgotPass> {
                 'Email',
                 style: TextStyle(
                     fontSize: 14.0,
-                    fontFamily: 'Satoshi-Regular',
+                    fontFamily: 'Satoshi',
                     fontWeight: FontWeight.w500),
               ),
               const SizedBox(

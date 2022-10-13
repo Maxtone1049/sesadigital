@@ -13,7 +13,7 @@ class EventScheduled extends StatelessWidget {
           iconTheme: const IconThemeData(color: Colors.black, size: 25.0),
           elevation: 0,
           title: const Text(
-            'Visitor details (Scheduled)',
+            'Event details (Scheduled)',
             style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
@@ -34,7 +34,7 @@ class EventScheduled extends StatelessWidget {
                         Icon(Icons.close),
                         SizedBox(width: 5),
                         Text(
-                          "Cancel Visit",
+                          "Cancel Event",
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 16,
@@ -47,10 +47,10 @@ class EventScheduled extends StatelessWidget {
                     value: 1,
                     child: Row(
                       children: const [
-                        Icon(Icons.logout_outlined),
+                        Icon(Icons.summarize),
                         SizedBox(width: 5),
                         Text(
-                          "Sign out visitor",
+                          "Get Event Report",
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 16,
@@ -73,24 +73,33 @@ class EventScheduled extends StatelessWidget {
               children: [
                 SizedBox(height: 15),
                 DetailsHandle(
-                  label: 'Name',
-                  identify: 'Evelyn Theresa',
+                  label: 'Event Type',
+                  identify: 'Birthday',
                 ),
                 Divider(),
                 DetailsHandle(
-                    label: 'Phone Number', identify: '+2349065536542'),
+                    label: 'Event Type', identify: 'Chisom 1 year Birthday'),
                 Divider(),
                 DetailsHandle(
-                  label: 'Access Type',
-                  identify: 'Multiple Entry',
+                  label: 'Event Address',
+                  identify: 'Flat 12, Block 7, Zone 6',
                 ),
                 Divider(),
-                DetailsHandle(label: 'Access Date', identify: 'Today'),
+                DetailsHandle(label: 'Expected Guest Nos', identify: '20'),
+                Divider(),
+                DetailsHandle(label: 'Event Status', identify: 'Completed'),
+                Divider(),
+                DetailsHandle(
+                    label: 'Event Start Date',
+                    identify: '16 July 2022  10:00 am'),
+                Divider(),
+                DetailsHandle(
+                    label: 'Event End Date', identify: '16 July 2022  6:00 pm'),
                 Divider(),
                 DetailsHandle(
                     label: 'Message',
                     identify:
-                        'Adebayo is a fair man with full beards, not too tall and has a base voice.'),
+                        'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.'),
                 Divider(),
                 //TODO:Write a widget for proper checking out and other details below
                 // DetailsHandle(label: 'Mode of Entry', identify: 'Car'),
@@ -132,7 +141,7 @@ class EventScheduled extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: Text(
-                                'VS09786',
+                                'EV09786',
                                 style: TextStyle(
                                     fontSize: 16,
                                     fontFamily: 'Satoshi',
@@ -234,7 +243,7 @@ class DetailsHandle extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             flex: 1,
@@ -251,13 +260,54 @@ class DetailsHandle extends StatelessWidget {
           Expanded(
             child: Align(
               alignment: Alignment.topRight,
-              child: Text(
-                identify,
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontFamily: 'Satoshi',
-                    fontSize: 16),
-              ),
+              child: identify == 'Ongoing'
+                  ? Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xFFFF9500),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 6),
+                        child: Text(
+                          identify,
+                          textAlign: TextAlign.right,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Satoshi',
+                              fontSize: 16),
+                        ),
+                      ),
+                    )
+                  : identify == 'Completed'
+                      ? Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xFF34C759),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: Text(
+                              identify,
+                              textAlign: TextAlign.right,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Satoshi',
+                                  fontSize: 16),
+                            ),
+                          ),
+                        )
+                      : Text(
+                          identify,
+                          textAlign: TextAlign.right,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontFamily: 'Satoshi',
+                              fontSize: 16),
+                        ),
             ),
           ),
         ],

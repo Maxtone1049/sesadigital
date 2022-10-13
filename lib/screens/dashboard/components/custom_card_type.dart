@@ -12,7 +12,8 @@ class CustomCardVisitor extends StatelessWidget {
     this.startTime,
     this.stopTime,
     this.image1,
-    this.image2, required this.press,
+    this.image2,
+    required this.press,
   });
 
   final String visitorName;
@@ -58,7 +59,7 @@ class CustomCardVisitor extends StatelessWidget {
                 child: visitType == 'Event'
                     ? Icon(
                         Icons.calendar_month,
-                        size: 25,
+                        size: 22,
                         color: Colors.white,
                       )
                     : Text(
@@ -67,7 +68,7 @@ class CustomCardVisitor extends StatelessWidget {
                             : visitorName,
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 22,
+                            fontSize: 23,
                             fontFamily: 'Satoshi',
                             fontWeight: FontWeight.w700),
                       ),

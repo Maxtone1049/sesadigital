@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:sesa/screens/Booking/Pages/Visitors/add_visitors.dart';
 
 class CustomBottomSheet extends StatelessWidget {
   const CustomBottomSheet({
@@ -35,11 +35,8 @@ class CustomBottomSheet extends StatelessWidget {
             children: <Widget>[
               InkWell(
                 onTap: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(
-                    builder: (context) {
-                      return AddVisitor();
-                    },
-                  ));
+                  Navigator.of(context).pop();
+                  Get.toNamed('/add_visit');
                 },
                 child: Row(
                   children: [
@@ -73,7 +70,10 @@ class CustomBottomSheet extends StatelessWidget {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Get.toNamed('/add_event');
+                },
                 child: Row(
                   children: [
                     SvgPicture.asset(
@@ -106,7 +106,10 @@ class CustomBottomSheet extends StatelessWidget {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Get.toNamed('/add_visit');
+                },
                 child: Row(
                   children: [
                     SvgPicture.asset(

@@ -23,7 +23,7 @@ class ButtonSamp extends StatelessWidget {
             fontFamily: 'Satoshi'),
       ),
       style: ElevatedButton.styleFrom(
-        primary: colored,
+        backgroundColor: colored,
         minimumSize: const Size.fromHeight(50),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
       ),
