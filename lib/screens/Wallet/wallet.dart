@@ -36,6 +36,8 @@ class WalletPage extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
               child: Column(
+                mainAxisAlignment:MainAxisAlignment.center,
+                crossAxisAlignment:CrossAxisAlignment.end,
                 children: [
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
