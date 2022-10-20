@@ -2,6 +2,8 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/route_middleware.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import 'package:sesa/onboard.dart';
+import 'package:sesa/screens/Profile/Pages/activity_history.dart';
+import 'package:sesa/screens/Profile/Pages/profile_view.dart';
 import 'package:sesa/screens/Services/Pages/Artisan/book_artsian.dart';
 import 'package:sesa/screens/Services/Pages/Artisan/view_artisan.dart';
 import 'package:sesa/screens/Wallet/components/bank_transfer.dart';
@@ -38,6 +40,18 @@ appRoutes() => [
         page: () => PaymentPart(),
         transition: Transition.rightToLeftWithFade,
         transitionDuration: Duration(milliseconds: 200),
+      ),
+       GetPage(
+        name:'/acthistory',
+        page:()=>ActivityHistory(),
+        transition:Transition.rightToLeftWithFade,
+        transitionDuration:Duration(milliseconds:200),
+      ),
+      GetPage(
+        name:'/viewprofile',
+        page:()=>ViewProfile(),
+        transition:Transition.rightToLeftWithFade,
+        transitionDuration:Duration(milliseconds:200),
       ),
       GetPage(
         name: '/payment',

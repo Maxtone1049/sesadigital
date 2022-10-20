@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:sesa/components/button.dart';
+import 'package:get/route_manager.dart';
 
-class ProfilePic extends StatelessWidget {
+class ProfilePic extends StatefulWidget {
   const ProfilePic({
-    this.logintype,
+    required this.logintype,
     Key? key,
   }) : super(key: key);
-  final String? logintype;
+  final Check logintype;
+
+  @override
+  State<ProfilePic> createState() => _ProfilePicState();
+}
+
+enum Check { resident, land, normalresident }
+
+class _ProfilePicState extends State<ProfilePic> {
+  Check _check = Check.land;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,7 +30,7 @@ class ProfilePic extends StatelessWidget {
             radius: 40.0,
           ),
           SizedBox(width: 30),
-          logintype == 'Landlord'
+          widget.logintype == Check.land
               ? Row(
                   children: [
                     OutlinedButton(
@@ -56,16 +65,81 @@ class ProfilePic extends StatelessWidget {
                                                   fontSize: 22,
                                                   fontWeight:
                                                       FontWeight.w600))),
-                                      SelectResident(
-                                          urlimg: 'assets/image/pay.png',
-                                          residenttype: 'Resident',
-                                          address:
-                                              'Block 12 Zone A, Ajao Estate'),
-                                      SelectResident(
-                                          urlimg: 'assets/image/pay.png',
-                                          residenttype: 'Landlord',
-                                          address:
-                                              'Block 19 Zone C, Ajao Estate'),
+                                      Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            CircleAvatar(
+                                              backgroundImage: AssetImage(
+                                                  'assets/image/pay.png'),
+                                              radius: 30.0,
+                                            ),
+                                            SizedBox(width: 15),
+                                            Expanded(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text('Resident',
+                                                      style: TextStyle(
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.w600)),
+                                                  Text(
+                                                      'Block 12 Zone A, Ajao Estate',
+                                                      style: TextStyle(
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.w400)),
+                                                ],
+                                              ),
+                                            ),
+                                            Radio<Check>(
+                                              //only check box
+                                              value: Check.resident, //unchecked
+                                              groupValue: _check,
+                                              onChanged: ((Check? value) =>
+                                                  setState(() {
+                                                    value = _check;
+                                                  })),
+                                            ),
+                                          ]),
+                                      Row(children: [
+                                        CircleAvatar(
+                                          backgroundImage: AssetImage(
+                                              'assets/image/pay.png'),
+                                          radius: 30.0,
+                                        ),
+                                        SizedBox(width: 15),
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text('Landlord',
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w600)),
+                                              Text(
+                                                  'Block 19 Zone C, Ajao Estate',
+                                                  style: TextStyle(
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.w400)),
+                                            ],
+                                          ),
+                                        ),
+                                        Radio<Check>(
+                                          //only check box
+                                          value: Check.land, //unchecked
+                                          groupValue: _check,
+                                          onChanged: ((Check? value) =>
+                                              setState(() {
+                                                value = _check;
+                                              })),
+                                        ),
+                                      ])
                                     ],
                                   ),
                                 ),
@@ -81,7 +155,7 @@ class ProfilePic extends StatelessWidget {
                         fixedSize: const Size(115, 38),
                         backgroundColor: Color(0xFFE1ECFE),
                       ),
-                      onPressed: () {},
+                      onPressed: () => Get.toNamed('/viewprofile'),
                       child: Text('View Profile',
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
@@ -97,7 +171,7 @@ class ProfilePic extends StatelessWidget {
                     fixedSize: const Size(115, 38),
                     backgroundColor: Color(0xFFE1ECFE),
                   ),
-                  onPressed: () {},
+                  onPressed: () => Get.toNamed('/viewprofile'),
                   child: Text('View Profile',
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
@@ -107,38 +181,6 @@ class ProfilePic extends StatelessWidget {
                 ),
         ],
       ),
-    );
-  }
-}
-
-class SelectResident extends StatelessWidget {
-  const SelectResident({
-    required this.urlimg,
-    required this.residenttype,
-    required this.address,
-    Key? key,
-  }) : super(key: key);
-  final String urlimg, residenttype, address;
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap:(){},
-      child: Row(children: [
-        CircleAvatar(
-          backgroundImage: AssetImage(urlimg),
-          radius: 30.0,
-        ),
-        SizedBox(width:15),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(residenttype,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-            Text(address,
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400)),
-          ],
-        )
-      ]),
     );
   }
 }

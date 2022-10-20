@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   startTimer() async {
-    var duration = Duration(seconds: 5);
+    var duration = Duration(seconds: 3);
     return new Timer(duration, route);
   }
 
@@ -48,10 +48,10 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Image.asset("assets/image/logo.png"),
             ),
             Padding(padding: EdgeInsets.only(top: 20.0)),
-            Text(
-              'SESA DIGITAL',
-              style: TextStyle(fontSize: 20.0, color: Colors.white),
-            ),
+            // Text(
+            //   'SESA DIGITAL',
+            //   style: TextStyle(fontSize: 20.0, color: Colors.white),
+            // ),
             Padding(padding: EdgeInsets.only(top: 20.0)),
             SizedBox(
               height: 20,

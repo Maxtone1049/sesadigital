@@ -1,5 +1,6 @@
 import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class BankTransfer extends StatelessWidget {
   const BankTransfer({super.key});
@@ -8,6 +9,7 @@ class BankTransfer extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController diaryControllerWithPackageOne =
         TextEditingController();
+    final String accnum = '8437194308';
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -45,20 +47,20 @@ class BankTransfer extends StatelessWidget {
                       ),
                       SizedBox(height: 10),
                       Text(
-                        '8437194308',
+                        accnum,
                         style: TextStyle(
                             color: Color(0xFF1C5B9C),
                             fontSize: 20,
                             fontWeight: FontWeight.w600),
                       ),
                       // Container(
-                      //   width: 100,
+                      //   width: 250,
                       //   height: 100,
                       //   child: TextField(
                       // enabled: false,
                       //     controller: diaryControllerWithPackageOne,
                       //     decoration: const InputDecoration(
-                      //       labelText: 'Enter diary input for today',
+                      //       labelText: '8437194308',
                       //       border: OutlineInputBorder(),
                       //     ),
                       //   ),
@@ -67,9 +69,7 @@ class BankTransfer extends StatelessWidget {
                   ),
                   InkWell(
                       onTap: () async {
-                        FlutterClipboard.copy(
-                                diaryControllerWithPackageOne.text)
-                            .then(
+                        Clipboard.setData(ClipboardData(text: accnum)).then(
                           (value) {
                             return ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(

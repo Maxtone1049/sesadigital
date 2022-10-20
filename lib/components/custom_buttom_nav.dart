@@ -130,7 +130,7 @@ class CustomBottomNav extends StatelessWidget {
                         : kPrimaryColor,
                   ),
                 ),
-                Text(
+               Text(
                   'Services',
                   style: TextStyle(
                       fontWeight: MenuState.services == selectedMenu
@@ -155,7 +155,7 @@ class CustomBottomNav extends StatelessWidget {
                 IconButton(
                     onPressed: () {
                       Get.toNamed('/wallet');
-                    },
+                   },
                     tooltip: 'Wallet',
                     icon: SvgPicture.asset(
                       "assets/icons/wallet.svg",

@@ -23,7 +23,7 @@ class Body extends StatelessWidget {
           style: TextStyle(
               fontWeight: FontWeight.w600,
               fontFamily: 'Satoshi',
-              fontSize: 25.0,
+              fontSize: 20.0,
               color: Colors.black),
         ),
         centerTitle: true,
@@ -36,7 +36,7 @@ class Body extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 15),
-              ProfilePic(logintype: 'Landlord'),
+              ProfilePic(logintype: Check.land),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
