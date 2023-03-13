@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:sesa/components/button.dart';
 import 'package:sesa/components/custom_textfield.dart';
 import 'package:sesa/screens/Verification/verification.dart';
-import 'package:sesa/screens/dashboard/dashboard.dart';
 
 class PasswordPage extends StatelessWidget {
   @override
@@ -43,7 +43,7 @@ class PasswordPage extends StatelessWidget {
                       'Set Password',
                       style: TextStyle(
                           fontSize: 28.0,
-                          fontFamily: 'Satoshi-Regular',
+                          fontFamily: 'Satoshi',
                           fontWeight: FontWeight.w500),
                     ),
                     const SizedBox(
@@ -53,7 +53,7 @@ class PasswordPage extends StatelessWidget {
                       'Password',
                       style: TextStyle(
                           fontSize: 14.0,
-                          fontFamily: 'Satoshi-Regular',
+                          fontFamily: 'Satoshi',
                           fontWeight: FontWeight.w500),
                     ),
                     const SizedBox(
@@ -68,7 +68,7 @@ class PasswordPage extends StatelessWidget {
                       'Re-type Password',
                       style: TextStyle(
                           fontSize: 14.0,
-                          fontFamily: 'Satoshi-Regular',
+                          fontFamily: 'Satoshi',
                           fontWeight: FontWeight.w500),
                     ),
                     const SizedBox(
@@ -83,8 +83,8 @@ class PasswordPage extends StatelessWidget {
                       title: Text(
                         "Minimum of 8 characters",
                         style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'Satoshi-Regular',
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Satoshi',
                             fontSize: 12.0),
                       ),
                       value: "Minimum of 8 characters",
@@ -95,8 +95,8 @@ class PasswordPage extends StatelessWidget {
                       title: Text(
                         "One UPPERCASE character",
                         style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'Satoshi-Regular',
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Satoshi',
                             fontSize: 12.0),
                       ),
                       value: "One UPPERCASE character",
@@ -107,8 +107,8 @@ class PasswordPage extends StatelessWidget {
                       title: Text(
                         "One unique character (e.g: '!@#%^&')",
                         style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'Satoshi-Regular',
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Satoshi',
                             fontSize: 12.0),
                       ),
                       value: "One unique character (e.g: '!@#%^&')",
@@ -121,11 +121,7 @@ class PasswordPage extends StatelessWidget {
                     ButtonSamp(
                       text: 'Sign Up',
                       onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(
-                          builder: (context) {
-                            return Dashboard();
-                          },
-                        ));
+                       Get.toNamed('/dashboard');
                       },
                     ),
                     const SizedBox(
@@ -134,9 +130,10 @@ class PasswordPage extends StatelessWidget {
                     Align(
                         alignment: Alignment.center,
                         child: Text(
-                          'By clicking Sign Up you agree to our Terms and Conditions',
+                        textAlign:TextAlign.center,
+                          'By clicking Sign Up you agree to our\n Terms and Conditions',
                           style: TextStyle(
-                              fontFamily: 'Satoshi-Regular',
+                              fontFamily: 'Satoshi',
                               fontWeight: FontWeight.w400,
                               fontSize: 14.0),
                         )),

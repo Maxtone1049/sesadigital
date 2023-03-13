@@ -38,77 +38,62 @@ class TransHistory extends StatelessWidget {
                   amount: '5,000',
                   fundkind: 'assets/icons/received.svg',
                   typeoftrans: 'Wallet Fund'),
-              SizedBox(height: 15),
               HistoryCardWallet(
                   amount: '15,000',
                   fundkind: 'assets/icons/outgo.svg',
                   typeoftrans: 'Energy Token'),
-              SizedBox(height: 15),
               HistoryCardWallet(
                   amount: '15,000',
                   fundkind: 'assets/icons/outgo.svg',
                   typeoftrans: 'Energy Token'),
-              SizedBox(height: 15),
               HistoryCardWallet(
                   amount: '15,000',
                   fundkind: 'assets/icons/outgo.svg',
                   typeoftrans: 'Energy Token'),
-              SizedBox(height: 15),
               HistoryCardWallet(
                   amount: '15,000',
                   fundkind: 'assets/icons/outgo.svg',
                   typeoftrans: 'Energy Token'),
-              SizedBox(height: 15),
               HistoryCardWallet(
                   amount: '15,000',
                   fundkind: 'assets/icons/outgo.svg',
                   typeoftrans: 'Energy Token'),
-              SizedBox(height: 15),
               HistoryCardWallet(
                   amount: '15,000',
                   fundkind: 'assets/icons/outgo.svg',
                   typeoftrans: 'Energy Token'),
-              SizedBox(height: 15),
               HistoryCardWallet(
                   amount: '15,000',
                   fundkind: 'assets/icons/outgo.svg',
                   typeoftrans: 'Energy Token'),
-              SizedBox(height: 15),
               HistoryCardWallet(
                   amount: '15,000',
                   fundkind: 'assets/icons/outgo.svg',
                   typeoftrans: 'Energy Token'),
-              SizedBox(height: 15),
               HistoryCardWallet(
                   amount: '5,000',
                   fundkind: 'assets/icons/received.svg',
                   typeoftrans: 'Wallet Fund'),
-              SizedBox(height: 15),
               HistoryCardWallet(
                   amount: '5,000',
                   fundkind: 'assets/icons/received.svg',
                   typeoftrans: 'Wallet Fund'),
-              SizedBox(height: 15),
               HistoryCardWallet(
                   amount: '5,000',
                   fundkind: 'assets/icons/received.svg',
                   typeoftrans: 'Wallet Fund'),
-              SizedBox(height: 15),
               HistoryCardWallet(
                   amount: '5,000',
                   fundkind: 'assets/icons/received.svg',
                   typeoftrans: 'Wallet Fund'),
-              SizedBox(height: 15),
               HistoryCardWallet(
                   amount: '5,000',
                   fundkind: 'assets/icons/received.svg',
                   typeoftrans: 'Wallet Fund'),
-              SizedBox(height: 15),
               HistoryCardWallet(
                   amount: '5,000',
                   fundkind: 'assets/icons/received.svg',
                   typeoftrans: 'Wallet Fund'),
-              SizedBox(height: 15),
             ]),
           ),
         ),

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sesa/enum.dart';
-import 'package:sesa/screens/Booking/booking.dart';
-import 'package:sesa/screens/Profile/profile_screen.dart';
-import 'package:sesa/screens/dashboard/dashboard.dart';
 import 'package:get/route_manager.dart';
 
 class CustomBottomNav extends StatelessWidget {
@@ -130,7 +127,7 @@ class CustomBottomNav extends StatelessWidget {
                         : kPrimaryColor,
                   ),
                 ),
-               Text(
+                Text(
                   'Services',
                   style: TextStyle(
                       fontWeight: MenuState.services == selectedMenu
@@ -155,7 +152,7 @@ class CustomBottomNav extends StatelessWidget {
                 IconButton(
                     onPressed: () {
                       Get.toNamed('/wallet');
-                   },
+                    },
                     tooltip: 'Wallet',
                     icon: SvgPicture.asset(
                       "assets/icons/wallet.svg",

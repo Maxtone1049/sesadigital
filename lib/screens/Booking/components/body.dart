@@ -121,7 +121,7 @@ class CustomTabDrawer extends StatelessWidget {
                           height: 260,
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 15, vertical: 20),
+                                horizontal: 15, vertical: 10),
                             child: SingleChildScrollView(
                               child: Column(
                                 children: [

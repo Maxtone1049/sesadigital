@@ -25,7 +25,7 @@ class ButtonSamp extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: colored,
         minimumSize: const Size.fromHeight(50),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
     );
   }

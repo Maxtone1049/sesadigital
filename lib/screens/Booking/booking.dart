@@ -33,6 +33,7 @@ class BookingScreen extends StatelessWidget {
         bottomNavigationBar:
             const CustomBottomNav(selectedMenu: MenuState.book),
         floatingActionButton: FloatingActionButton(
+          backgroundColor: Color(0xFF2066AF),
           onPressed: () {
             showModalBottomSheet(
                 shape: const RoundedRectangleBorder(

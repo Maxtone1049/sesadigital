@@ -159,7 +159,7 @@ class _ProfilePicState extends State<ProfilePic> {
                       child: Text('View Profile',
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
-                              fontSize: 16.0,
+                              fontSize: 14.0,
                               color: Color(0xFF0E2D4E),
                               fontFamily: 'Satoshi')),
                     ),
@@ -175,7 +175,7 @@ class _ProfilePicState extends State<ProfilePic> {
                   child: Text('View Profile',
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          fontSize: 16.0,
+                          fontSize: 14.0,
                           color: Color(0xFF0E2D4E),
                           fontFamily: 'Satoshi')),
                 ),

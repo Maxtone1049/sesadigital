@@ -32,13 +32,14 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Introduction screen',
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: App.kprimaryColor, fontFamily: 'Satoshi'),
-      initialRoute: show
-          ? '/splash'
-          : show
-              ? '/onboard'
-              : '/home',
+      // initialRoute: show
+      //     ? '/splash'
+      //     : show
+      //         ? '/onboard'
+      //         : '/home',
+      initialRoute:'/splash',
       getPages: appRoutes(),
     );
   }

@@ -22,6 +22,7 @@ class ScheduledEventCard extends StatelessWidget {
   static var kConColorArtisan = Color(0xFFD7F2FE);
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     final Color kTextColor = Color(0xFFF0DBFA);
     final Color kTextorange = Color(0xFFFF9500);
     final Color kArtisanColor = Color(0xFF5AC8FA);
@@ -31,7 +32,7 @@ class ScheduledEventCard extends StatelessWidget {
       onTap: tapped,
       child: Container(
         height: 100,
-        width: 369,
+        width: size.width,
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 13),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -66,29 +67,33 @@ class ScheduledEventCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(width: 10),
+                  SizedBox(width: 15),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      Text(
-                        visitorName,
-                        style: TextStyle(
-                            fontFamily: 'Satoshi',
-                            fontSize: 16,
-                            fontStyle: FontStyle.normal,
-                            fontWeight: FontWeight.w600),
+                      Expanded(
+                        child: Text(
+                          visitorName,
+                          style: TextStyle(
+                              fontFamily: 'Satoshi',
+                              fontSize: 16,
+                              fontStyle: FontStyle.normal,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
                       SizedBox(
                         height: 2,
                       ),
-                      Text(
-                        serialNumber,
-                        style: TextStyle(
-                            fontFamily: 'Satoshi',
-                            fontSize: 14,
-                            fontStyle: FontStyle.normal,
-                            fontWeight: FontWeight.w300),
+                      Expanded(
+                        child: Text(
+                          serialNumber,
+                          style: TextStyle(
+                              fontFamily: 'Satoshi',
+                              fontSize: 14,
+                              fontStyle: FontStyle.normal,
+                              fontWeight: FontWeight.w300),
+                        ),
                       ),
                       Row(
                         children: [

@@ -81,7 +81,7 @@ class DetailsHandle extends StatelessWidget {
     this.checkedout,
   }) : super(key: key);
   final String label, identify;
-  final String ? checkedout;
+  final String? checkedout;
 
   @override
   Widget build(BuildContext context) {
@@ -107,46 +107,53 @@ class DetailsHandle extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-               if (label=='Amount' || label=='Amount balance') Row(children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:2),
-                  child: SvgPicture.asset('assets/icons/Naira.svg'),
-                ), identify == 'Paid'
-                    ? Text(
-                        identify,
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Satoshi',
-                            color: Color(0xFF34C759),
-                            fontSize: 14),
-                      ):
-                      Text(
-                        identify,
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Satoshi',
-                            fontSize: 14),
-                      ),
-               ]
-               ) else identify == 'Paid'
-                    ? Text(
-                        identify,
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Satoshi',
-                            color: Color(0xFF34C759),
-                            fontSize: 14),
+                if (label == 'Amount' || label == 'Amount balance')
+                  Row(children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2),
+                      child: SvgPicture.asset('assets/icons/Naira.svg'),
+                    ),
+                    identify == 'Paid'
+                        ? Text(
+                            identify,
+                            textAlign: TextAlign.right,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Satoshi',
+                                color: Color(0xFF34C759),
+                                fontSize: 14),
+                          )
+                        : Text(
+                            identify,
+                            textAlign: TextAlign.right,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Satoshi',
+                                fontSize: 14),
+                          ),
+                  ])
+                else
+                  identify == 'Paid'
+                      ? Expanded(
+                        child: Text(
+                            identify,
+                            textAlign: TextAlign.right,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Satoshi',
+                                color: Color(0xFF34C759),
+                                fontSize: 14),
+                          ),
                       )
-                    : Text(
-                        identify,
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Satoshi',
-                            fontSize: 14),
+                      : Expanded(
+                        child: Text(
+                            identify,
+                            textAlign: TextAlign.right,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Satoshi',
+                                fontSize: 14),
+                          ),
                       ),
               ],
             ),

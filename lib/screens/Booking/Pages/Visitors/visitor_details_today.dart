@@ -124,12 +124,7 @@ class VisitorDetails extends StatelessWidget {
                           Image.asset('assets/image/qrcode.png'),
                        const  SizedBox(height: 10),
                           Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 2, style: BorderStyle.solid),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Padding(
+                           child: Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: Text(
                                 'VS09786',

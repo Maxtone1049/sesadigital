@@ -23,7 +23,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     Size size = MediaQuery.of(context).size;
     return Image.asset(
       'assets/$assetName',
-      fit: BoxFit.cover,
+      fit: BoxFit.contain,
       height: double.infinity,
       width: size.width,
       alignment: Alignment.center,
@@ -35,7 +35,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     return Image.asset(
       'assets/$assetName',
       fit: BoxFit.fill,
-      height: 620.0,
+      height: size.height*0.6,
       width: size.width,
       alignment: Alignment.topCenter,
     );
@@ -61,13 +61,19 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   @override
   Widget build(BuildContext context) {
-    const kprimaryColor = const Color(0xFF043FA7);
+    const kprimaryColor = const Color(0xFF0660FE);
     const bodyStyle = TextStyle(
-        fontSize: 15.0, fontFamily: 'Satoshi', fontWeight: FontWeight.w500);
+        fontSize: 16.0,
+        fontFamily: 'Satoshi',
+        fontWeight: FontWeight.w400,
+        color: Colors.black);
     Size size = MediaQuery.of(context).size;
     const pageDecoration = const PageDecoration(
       titleTextStyle: TextStyle(
-          fontSize: 28.0, fontWeight: FontWeight.w600, fontFamily: 'Satoshi'),
+          fontSize: 26.0,
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
+          fontFamily: 'Satoshi'),
       bodyTextStyle: bodyStyle,
       bodyPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
       pageColor: Colors.white,
@@ -77,14 +83,6 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     return IntroductionScreen(
       key: introKey,
       globalBackgroundColor: Colors.white,
-      // globalHeader: Align(
-      //   child: SafeArea(
-      //     child: Padding(
-      //       padding: const EdgeInsets.only(top: 16, right: 16),
-      //       child: _buildImage('image/logo.png', 60),
-      //     ),
-      //   ),
-      // ),
       pages: [
         PageViewModel(
           title: "Emergency Panic Button",
@@ -97,7 +95,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             contentMargin: const EdgeInsets.symmetric(horizontal: 16),
             fullScreen: true,
             bodyFlex: 2,
-            imageFlex: 9,
+            imageFlex: 5,
           ),
         ),
         PageViewModel(
@@ -111,7 +109,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             contentMargin: const EdgeInsets.symmetric(horizontal: 16),
             fullScreen: true,
             bodyFlex: 2,
-            imageFlex: 9,
+            imageFlex: 5,
           ),
         ),
         PageViewModel(
@@ -125,7 +123,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             contentMargin: const EdgeInsets.symmetric(horizontal: 16),
             fullScreen: true,
             bodyFlex: 2,
-            imageFlex: 9,
+            imageFlex: 5,
           ),
         ),
       ],
@@ -138,29 +136,64 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       //rtl: true, // Display as right-to-left
       back: const Icon(Icons.arrow_back),
       skip: const Text('Skip',
-          style:
-              TextStyle(fontWeight: FontWeight.w600, color: Color(0xFF043FA7))),
-      next: const Icon(Icons.arrow_forward),
-      done: const Text('Done',
-          style:
-              TextStyle(fontWeight: FontWeight.w600, color: Color(0xFF043FA7))),
+          style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 18,
+              color: Color(0xFF0660FE))),
+      next: Container(
+        width: 120,
+        height: 46,
+        decoration: BoxDecoration(
+          color: Color(0xFF0660FE),
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+        ),
+        child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          Text(
+            'Next',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+            ),
+          ),
+          Icon(
+            Icons.arrow_forward,
+            color: Colors.white,
+          ),
+        ]),
+      ),
+      done: Container(
+        width: 120,
+        height: 46,
+        decoration: BoxDecoration(
+          color: Color(0xFF0660FE),
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+        ),
+        child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          Text(
+            'Next',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+            ),
+          ),
+          Icon(
+            Icons.arrow_forward,
+            color: Colors.white,
+          ),
+        ]),
+      ),
       curve: Curves.fastLinearToSlowEaseIn,
-      controlsMargin: const EdgeInsets.all(16),
+      controlsMargin: const EdgeInsets.all(10),
       controlsPadding: kIsWeb
           ? const EdgeInsets.all(12.0)
           : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
       dotsDecorator: const DotsDecorator(
         size: Size(10.0, 10.0),
         color: Color(0xFFBDBDBD),
-        activeSize: Size(22.0, 10.0),
+        activeSize: Size(10.0, 10.0),
+        activeColor: Color(0xFF0660FE),
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25.0)),
-        ),
-      ),
-      dotsContainerDecorator: const ShapeDecoration(
-        color: Colors.black87,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8.0)),
         ),
       ),
     );

@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 class CustomTextfield extends StatelessWidget {
   final bool obscureText;
   final String hintText;
-  final TextEditingController ? controller;
+  final TextEditingController? controller;
+  final IconData? input;
 
   const CustomTextfield({
     Key? key,
     required this.obscureText,
     required this.hintText,
-    this.controller ,
+    this.controller,
+    this.input,
   }) : super(key: key);
-
 
   Widget build(BuildContext context) {
     return TextField(
@@ -25,12 +26,15 @@ class CustomTextfield extends StatelessWidget {
       decoration: InputDecoration(
         border: InputBorder.none,
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 1, color: Color(0xFFC2C9D1)), 
+          borderSide: BorderSide(width: 1, color: Color(0xFFC2C9D1)),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(width: 1, color: Colors.amberAccent),
         ),
-        // prefixIcon: Icon(icon, color: Colors.black.withOpacity(.3),),
+        suffixIcon: Icon(
+          input,
+          color: Colors.black.withOpacity(.3),
+        ),
         hintText: hintText,
       ),
       cursorColor: Colors.black.withOpacity(.5),

@@ -59,76 +59,80 @@ class _SignInState extends State<SignIn> {
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-             Spacer(),
-              Text(
-                'Welcome Back',
-                style: TextStyle(
-                    fontSize: 28.0,
-                    fontFamily: 'Satoshi',
-                    fontWeight: FontWeight.w600),
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              Text(
-                'Email Address',
-                style: TextStyle(
-                    fontSize: 14.0,
-                    fontFamily: 'Satoshi',
-                    fontWeight: FontWeight.w600),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              CustomTextfield(
-                  controller: emailController,
-                  obscureText: false,
-                  hintText: 'Enter Email'),
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                'Password',
-                style: TextStyle(
-                    fontSize: 14.0,
-                    fontFamily: 'Satoshi',
-                    fontWeight: FontWeight.w600),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              CustomTextfield(
-                  controller: passwordController,
-                  obscureText: true,
-                  hintText: 'Enter Password'),
-              const SizedBox(
-                height: 20,
-              ),
-              ButtonSamp(
-                text: 'Sign In',
-                onPressed: pushIn,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              TextButton(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+           SizedBox(height:50),
+            Text(
+              'Welcome Back',
+              textAlign:TextAlign.left,
+              style: TextStyle(
+                  fontSize: 28.0,
+                  fontFamily: 'Satoshi',
+                  fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            Text(
+              'Email Address',
+              textAlign:TextAlign.left,
+              style: TextStyle(
+                  fontSize: 14.0,
+                  fontFamily: 'Satoshi',
+                  fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            CustomTextfield(
+                controller: emailController,
+                obscureText: false,
+                hintText: 'Enter Email'),
+            const SizedBox(
+              height: 20,
+            ),
+            Text(
+              'Password',
+              textAlign:TextAlign.left,
+              style: TextStyle(
+                  fontSize: 14.0,
+                  fontFamily: 'Satoshi',
+                  fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            CustomTextfield(
+                controller: passwordController,
+                obscureText: true,
+                hintText: 'Enter Password'),
+            const SizedBox(
+              height: 30,
+            ),
+            ButtonSamp(
+              text: 'Sign In',
+              onPressed: pushIn,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              width: size.width,
+              child: TextButton(
                 onPressed: forgotPass,
                 child: Text(
                   "Forgot Password?",
-                  textAlign: TextAlign.right,
                   style: TextStyle(
                       fontFamily: 'Satoshi',
-                      fontWeight: FontWeight.w600),
+                      color:Colors.black,
+                      fontWeight: FontWeight.w500),
                 ),
               ),
-               Spacer(),
-            ],
-          ),
+            ),
+             Spacer(),
+          ],
         ),
       ),
     );

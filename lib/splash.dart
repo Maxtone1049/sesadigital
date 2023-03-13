@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         constraints: BoxConstraints.expand(),
         decoration: BoxDecoration(
-          color: Color(0xFF043FA7),
+          color: Color(0xFF0660FE),
           // image: DecorationImage(
           //     image: AssetImage("assets/image/logo.png"), fit: BoxFit.cover),
         ),
@@ -45,14 +45,11 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              child: Image.asset("assets/image/logo.png"),
+              child: Image.asset("assets/image/logo.png",
+              height:162,
+              width:162,
+              ),
             ),
-            Padding(padding: EdgeInsets.only(top: 20.0)),
-            // Text(
-            //   'SESA DIGITAL',
-            //   style: TextStyle(fontSize: 20.0, color: Colors.white),
-            // ),
-            Padding(padding: EdgeInsets.only(top: 20.0)),
             SizedBox(
               height: 20,
             ),

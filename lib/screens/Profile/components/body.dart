@@ -36,7 +36,7 @@ class Body extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 15),
-              ProfilePic(logintype: Check.land),
+              ProfilePic(logintype: Check.resident),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: Text(

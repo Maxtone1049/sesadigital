@@ -40,7 +40,7 @@ class AddVisitor extends StatelessWidget {
           iconTheme: const IconThemeData(color: Colors.black, size: 25.0),
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
