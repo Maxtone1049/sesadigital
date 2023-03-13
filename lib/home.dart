@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      'A digital plartform allowing you to automate \nall estate functionalities digitally.',
+                      'A digital platform allowing you to automate \nall estate functionalities digitally.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 20.0,
